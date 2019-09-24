@@ -1,0 +1,34 @@
+body {
+  margin:0 auto;
+}
+.headline {
+    background-color: #d2811e;
+  }
+  .lineThrough {
+    text-decoration: line-through;
+  }
+  .round-button {
+    background: #cbced1;
+    border-radius: 20%;
+    padding: 0.3em 0.3em;
+  }
+
+  .round-a {
+    display:block;
+    width:30px;
+    height:30px;
+    line-height:23px;
+    border: 1px solid black;
+    border-radius: 50%;
+    color:black;
+    text-align:center;
+    text-decoration:none;
+    background: #cbced1;
+    box-shadow: 0 0 3px #cbced1;
+    font-size:26px;
+    font-weight:bold;
+}
+.round-a:hover {
+    background: #cbced1;
+    text-decoration:none;
+}

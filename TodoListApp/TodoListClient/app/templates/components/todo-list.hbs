@@ -1,0 +1,58 @@
+{{yield}}
+<div dir="rtl">
+    <div class="row">
+        <div class="col-sm-3 offset-col-sm-3">
+            <div class="row headline">
+                <div class="col-sm-3">
+                    <h2>משימות</h2>
+                </div>
+                <div class="col-sm-6"></div>
+                <div class="col-sm-1" onclick={{action "add"}}><button class="round-button"><a href="javascript:void(0)"
+                            class="round-a">+</a></button></div>
+            </div>
+            <div class="table-responsive">
+                <table class="table">
+                    <tbody>
+                        {{#each this.todos as |todo index|}}
+                        <tr>
+
+                            <td>
+                                {{#unless todo.editable}}
+                                {{input type="checkbox" name=todo.title checked=todo.isDone change=(action "toggleDone" todo)}}
+                                {{/unless}}
+                            </td>
+                            <td>
+                                {{#if todo.editable}}
+                                {{input value=todo.title}}
+                                {{else}}
+                                <div onclick={{action "edit" todo}} class="{{if todo.isDone "lineThrough" ""}}">
+                                    {{todo.title}}
+                                </div>
+                                {{/if}}
+                            </td>
+                            <td>
+                                {{#if todo.editable}}
+                                <span style="color: limegreen; cursor: pointer" onclick={{action "save" todo}}>
+                                    √</span><span onclick={{action "remove" index}}>X</span>
+                                {{else}}
+                                <span onclick={{action "remove" index}}>X</span>
+                                {{/if}}
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3 offset-col-sm-9">
+            <div class="row">
+                <div class="col-sm-3">
+                    לסיום:{{this.notCompleted}}</div>
+                <div class="col-sm-3">הושלמו:{{this.completed}} </div>
+                <div class="col-sm-3">סה"כ: {{this.todos.length}}</div>
+            </div>
+        </div>
+    </div>
+</div>
